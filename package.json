@@ -1,0 +1,58 @@
+{
+  "name": "border-wait-times-canada-mexico-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for live US border wait times at the Canada and Mexico land crossings: car, SENTRI and NEXUS, Ready Lane, pedestrian and truck (FAST) waits, lanes open and port hours for every CBP port of entry, plus the fastest crossing nearby. Read live from U.S. Customs and Border Protection. No API key.",
+  "type": "module",
+  "license": "MIT",
+  "author": "theluckystrike",
+  "mcpName": "io.github.theluckystrike/border-wait-times-canada-mexico-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/border-wait-times-canada-mexico-mcp"
+  },
+  "homepage": "https://www.mcpstamp.com/servers/",
+  "bin": {
+    "border-wait-times-canada-mexico-mcp": "dist/stdio.js"
+  },
+  "main": "dist/stdio.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test",
+    "start": "node dist/stdio.js",
+    "deploy": "npx wrangler@4 deploy",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "border-wait-times",
+    "border-crossing",
+    "cbp",
+    "us-mexico-border",
+    "us-canada-border",
+    "sentri",
+    "nexus",
+    "ready-lane",
+    "san-ysidro",
+    "port-of-entry",
+    "travel",
+    "cloudflare-workers"
+  ]
+}

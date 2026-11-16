@@ -1,0 +1,5 @@
+[
+  ["border_wait_times", {"crossing": "San Ysidro"}],
+  ["border_wait_times_list", {"border": "canada", "lane": "car"}],
+  ["border_fastest_crossing", {"near": "Tijuana", "lane": "sentri_nexus"}]
+]
