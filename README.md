@@ -1,5 +1,49 @@
 # border-wait-times-canada-mexico-mcp
 
+**Live CBP border wait times at every US-Mexico and US-Canada land crossing (cars, SENTRI, NEXUS, Ready Lane, pedestrians, trucks), as an MCP server.** Free and hosted: no API key, no sign-up.
+
+Hosted MCP URL (Streamable HTTP):
+
+```
+https://border-wait-times-canada-mexico-mcp.lipmichal.workers.dev/mcp
+```
+
+## Quick start
+
+### Claude
+
+Claude Desktop or claude.ai: Settings > Connectors > Add custom connector, then paste the URL above.
+
+Claude Code:
+
+```
+claude mcp add --transport http border-wait-times https://border-wait-times-canada-mexico-mcp.lipmichal.workers.dev/mcp
+```
+
+Claude Desktop config file (`claude_desktop_config.json`), through the `mcp-remote` bridge:
+
+```json
+{
+  "mcpServers": {
+    "border-wait-times": { "command": "npx", "args": ["-y", "mcp-remote", "https://border-wait-times-canada-mexico-mcp.lipmichal.workers.dev/mcp"] }
+  }
+}
+```
+
+### Cursor
+
+Add to `~/.cursor/mcp.json`.
+
+```json
+{
+  "mcpServers": {
+    "border-wait-times": { "url": "https://border-wait-times-canada-mexico-mcp.lipmichal.workers.dev/mcp" }
+  }
+}
+```
+
+## About
+
 Live US border wait times for AI assistants. Ask how long the line is at San Ysidro, whether the SENTRI lane at Otay Mesa is faster, which Detroit crossing to take into the US, or which Texas bridge has the shortest truck wait.
 
 This is a Model Context Protocol (MCP) server. It reads the U.S. Customs and Border Protection Border Wait Times feed for every land port of entry on the Canadian and Mexican borders at call time. It needs no API key.
@@ -20,7 +64,7 @@ Every result has structured JSON, a plain-text summary, `as_of`, `source` and `m
 - Which lanes are open: SENTRI and NEXUS, Ready Lane, pedestrian and FAST truck lanes, and the number of booths staffed.
 - Which crossing serves a Mexican or Canadian city (Tijuana: San Ysidro and Otay Mesa; Juarez: the El Paso bridges; Windsor: the Detroit crossings).
 
-## Install
+## Other clients and local install
 
 ### Hosted (custom connector, ChatGPT developer mode, any remote MCP client)
 
@@ -28,18 +72,6 @@ Paste this URL. No token, no sign-up.
 
 ```
 https://border-wait-times-canada-mexico-mcp.lipmichal.workers.dev/mcp
-```
-
-### Cursor
-
-Add to `~/.cursor/mcp.json`.
-
-```json
-{
-  "mcpServers": {
-    "border-wait-times": { "url": "https://border-wait-times-canada-mexico-mcp.lipmichal.workers.dev/mcp" }
-  }
-}
 ```
 
 ### VS Code
